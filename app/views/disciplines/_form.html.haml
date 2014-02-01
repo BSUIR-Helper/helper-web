@@ -1,4 +1,10 @@
 = simple_form_for(@discipline, html: {class: 'form-horizontal' }) do |f|
+  - if @discipline.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@discipline.errors.count, "error")} prohibited this discipline from being saved:"
+      %ul
+        - @discipline.errors.full_messages.each do |msg|
+          %li= msg
   = f.input :name
   = f.input :abbr
   = f.button :submit
