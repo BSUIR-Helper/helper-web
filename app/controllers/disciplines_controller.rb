@@ -4,7 +4,7 @@ class DisciplinesController < ApplicationController
   # GET /disciplines
   # GET /disciplines.json
   def index
-    @disciplines = Discipline.all
+    @disciplines = policy_scope(Discipline)
   end
 
   # GET /disciplines/1
@@ -15,6 +15,7 @@ class DisciplinesController < ApplicationController
   # GET /disciplines/new
   def new
     @discipline = Discipline.new
+    authorize @discipline
   end
 
   # GET /disciplines/1/edit
@@ -25,6 +26,7 @@ class DisciplinesController < ApplicationController
   # POST /disciplines.json
   def create
     @discipline = Discipline.new(discipline_params)
+    authorize @discipline
 
     respond_to do |format|
       if @discipline.save
@@ -40,6 +42,7 @@ class DisciplinesController < ApplicationController
   # PATCH/PUT /disciplines/1
   # PATCH/PUT /disciplines/1.json
   def update
+    authorize @discipline
     respond_to do |format|
       if @discipline.update(discipline_params)
         format.html { redirect_to @discipline, notice: 'Discipline was successfully updated.' }
@@ -65,6 +68,7 @@ class DisciplinesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_discipline
       @discipline = Discipline.find(params[:id])
+      authorize @discipline
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
