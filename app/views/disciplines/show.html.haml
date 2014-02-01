@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @discipline.name
+%p
+  %b Abbr:
+  = @discipline.abbr
+
+= link_to 'Edit', edit_discipline_path(@discipline)
+\|
+= link_to 'Back', disciplines_path

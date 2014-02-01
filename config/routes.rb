@@ -1,4 +1,6 @@
 Helper::Application.routes.draw do
+  resources :disciplines
+
   root 'welcome#index'
 
   devise_for :users
