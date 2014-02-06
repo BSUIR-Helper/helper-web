@@ -54,14 +54,19 @@ describe DisciplinesController do
   end
 
   describe "GET edit" do
+    before { sign_in Fabricate(:admin) }
+
     it "assigns the requested discipline as @discipline" do
       discipline = Discipline.create! valid_attributes
       get :edit, {:id => discipline.to_param}, valid_session
       assigns(:discipline).should eq(discipline)
+      expect(response.status).to eq(200)
     end
   end
 
   describe "POST create" do
+    before { sign_in Fabricate(:admin) }
+
     describe "with valid params" do
       it "creates a new Discipline" do
         expect {
@@ -99,6 +104,8 @@ describe DisciplinesController do
   end
 
   describe "PUT update" do
+    before { sign_in Fabricate(:admin) }
+
     describe "with valid params" do
       it "updates the requested discipline" do
         discipline = Discipline.create! valid_attributes
@@ -143,6 +150,8 @@ describe DisciplinesController do
   end
 
   describe "DELETE destroy" do
+    before { sign_in Fabricate(:admin) }
+
     it "destroys the requested discipline" do
       discipline = Discipline.create! valid_attributes
       expect {

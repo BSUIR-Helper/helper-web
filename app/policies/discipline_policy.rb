@@ -6,14 +6,20 @@ class DisciplinePolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    admin?
   end
 
   def create?
-    true
+    admin?
   end
 
   def destroy?
-    true
+    admin?
+  end
+
+  private
+
+  def admin?
+    user && user.admin?
   end
 end
