@@ -6,7 +6,7 @@
 %p
   %b Abbr:
   = @discipline.abbr
-
-= link_to 'Edit', edit_discipline_path(@discipline)
-\|
+- if policy(@discipline).edit?
+  = link_to 'Edit', edit_discipline_path(@discipline)
+  \|
 = link_to 'Back', disciplines_path
