@@ -17,6 +17,10 @@ class DisciplinePolicy < ApplicationPolicy
     admin?
   end
 
+  def index?
+    true
+  end
+
   private
 
   def admin?

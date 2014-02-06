@@ -9,7 +9,7 @@ describe DisciplinePolicy do
     let(:user) { nil }
 
     it { expect(subject).to permit(:show) }
-
+    it { expect(subject).to permit(:index) }
     it { expect(subject).not_to permit(:create) }
     it { expect(subject).not_to permit(:new) }
     it { expect(subject).not_to permit(:update) }
@@ -21,6 +21,7 @@ describe DisciplinePolicy do
     let(:user) { Fabricate(:user) }
 
     it { expect(subject).to permit(:show) }
+    it { expect(subject).to permit(:index) }
     it { expect(subject).not_to permit(:create) }
     it { expect(subject).not_to permit(:new) }
     it { expect(subject).not_to permit(:update) }
@@ -32,6 +33,7 @@ describe DisciplinePolicy do
     let(:user) { Fabricate(:admin) }
 
     it { expect(subject).to permit(:show) }
+    it { expect(subject).to permit(:index) }
     it { expect(subject).to permit(:create) }
     it { expect(subject).to permit(:new) }
     it { expect(subject).to permit(:update) }
