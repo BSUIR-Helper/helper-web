@@ -47,8 +47,11 @@ describe DisciplinesController do
   end
 
   describe "GET new" do
+    before { sign_in Fabricate(:admin) }
+
     it "assigns a new discipline as @discipline" do
       get :new, {}, valid_session
+      expect(response.status).to eq(200)
       assigns(:discipline).should be_a_new(Discipline)
     end
   end

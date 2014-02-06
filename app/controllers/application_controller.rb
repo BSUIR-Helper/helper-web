@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  before_filter :authenticate_user!
+
   private
 
   def user_not_authorized
