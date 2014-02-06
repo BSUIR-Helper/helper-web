@@ -1,10 +1,3 @@
 class WelcomeController < ApplicationController
-  def index
-  end
-
-  private
-
-  def verify_policy_scoped
-    # nothing
-  end
+  skip_after_action :verify_policy_scoped, :only => :index
 end
