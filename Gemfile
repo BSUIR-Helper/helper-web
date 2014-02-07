@@ -14,6 +14,8 @@ gem 'haml-rails'
 
 group :development do
   gem 'better_errors'
+  gem 'guard-rspec', require: false
+  gem 'terminal-notifier-guard'
   gem 'rails_layout'
 end
 
