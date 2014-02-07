@@ -1,0 +1,28 @@
+%h1 Listing lectors
+
+%table
+  %tr
+    %th Name
+    %th Title
+    %th Description
+    %th
+    %th
+    %th
+
+  - @lectors.each do |lector|
+    %tr
+      %td= lector.name
+      %td= lector.title
+      %td= lector.description
+      %td= link_to 'Show', lector
+      %td
+        - if policy(lector).edit?
+          = link_to 'Edit', edit_lector_path(lector)
+      %td
+        - if policy(lector).destroy?
+          = link_to 'Destroy', lector, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+- if policy(Lector).create?
+  = link_to 'New Lector', new_lector_path

@@ -1,4 +1,6 @@
 Helper::Application.routes.draw do
+  resources :lectors
+
   resources :disciplines
 
   root 'welcome#index'

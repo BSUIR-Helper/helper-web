@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe DisciplinePolicy do
-  subject { DisciplinePolicy.new(user, Fabricate(:discipline)) }
+describe LectorPolicy do
+  subject { LectorPolicy.new(user, Fabricate(:lector)) }
 
   context "for a visitor" do
     let(:user) { nil }

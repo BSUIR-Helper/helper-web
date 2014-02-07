@@ -1,6 +1,9 @@
 <% if policy(Discipline).index? %>
   <li><%= link_to 'Disciplines', disciplines_path %></li>
 <% end %>
+<% if policy(Lector).index? %>
+  <li><%= link_to 'Lectors', lectors_path %></li>
+<% end %>
 <% if user_signed_in? %>
   <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
 <% else %>

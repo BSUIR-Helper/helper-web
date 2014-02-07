@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @lector.name
+%p
+  %b Title:
+  = @lector.title
+%p
+  %b Description:
+  = @lector.description
+
+- if policy(@lector).edit?
+  = link_to 'Edit', edit_lector_path(@lector)
+  \|
+= link_to 'Back', lectors_path

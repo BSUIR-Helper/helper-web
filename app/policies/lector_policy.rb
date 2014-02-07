@@ -1,4 +1,4 @@
-class DisciplinePolicy < ApplicationPolicy
+class LectorPolicy < ApplicationPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
       scope.all

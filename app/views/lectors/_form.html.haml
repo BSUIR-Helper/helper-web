@@ -1,0 +1,13 @@
+= simple_form_for @lector do |f|
+  - if @lector.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@lector.errors.count, "error")} prohibited this lector from being saved:"
+      %ul
+        - @lector.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.input :name, label: 'Full name', hint: 'I.e. <i>Kurt Donald Cobain</i>'.html_safe
+  = f.input :title, hint: 'I.e. <i>P.H.D.</i>'.html_safe
+  = f.input :description, as: :text
+  %p TODO: add disciplines picker
+  = f.button :submit

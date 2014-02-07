@@ -37,5 +37,11 @@ class ApplicationPolicy
   def scope
     Pundit.policy_scope!(user, record.class)
   end
+
+  private
+
+  def admin?
+    user && user.admin?
+  end
 end
 
