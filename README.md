@@ -1,4 +1,4 @@
-# BSUIR Helper
+# BSUIR Helper [![Build Status](https://travis-ci.org/BSUIR-Helper/helper-web.png?branch=master)](https://travis-ci.org/BSUIR-Helper/helper-web)
 
 The next version of http://bsuir-helper.ru
 
