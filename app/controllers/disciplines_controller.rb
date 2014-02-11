@@ -1,7 +1,7 @@
 class DisciplinesController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:index, :show]
 
-  before_action :set_discipline, only: [:show, :edit, :update, :destroy]
+  before_action :load_discipline, only: [:show, :edit, :update, :destroy]
 
   # GET /disciplines
   # GET /disciplines.json
@@ -67,7 +67,7 @@ class DisciplinesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_discipline
+    def load_discipline
       @discipline = Discipline.find(params[:id])
       authorize @discipline
     end

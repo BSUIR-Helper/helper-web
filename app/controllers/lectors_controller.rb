@@ -1,7 +1,7 @@
 class LectorsController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:index, :show]
 
-  before_action :set_lector, only: [:show, :edit, :update, :destroy]
+  before_action :load_lector, only: [:show, :edit, :update, :destroy]
 
   # GET /lectors
   # GET /lectors.json
@@ -67,7 +67,7 @@ class LectorsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_lector
+    def load_lector
       @lector = Lector.find(params[:id])
       authorize @lector
     end
