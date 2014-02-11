@@ -4,13 +4,11 @@ class DisciplinesController < ApplicationController
   before_action :load_discipline, only: [:show, :edit, :update, :destroy]
 
   # GET /disciplines
-  # GET /disciplines.json
   def index
     @disciplines = policy_scope(Discipline)
   end
 
   # GET /disciplines/1
-  # GET /disciplines/1.json
   def show
   end
 
@@ -25,48 +23,27 @@ class DisciplinesController < ApplicationController
   end
 
   # POST /disciplines
-  # POST /disciplines.json
   def create
     @discipline = Discipline.new(discipline_params)
     authorize @discipline
-
-    respond_to do |format|
-      if @discipline.save
-        format.html { redirect_to @discipline, notice: 'Discipline was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @discipline }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @discipline.errors, status: :unprocessable_entity }
-      end
-    end
+    @discipline.save
+    respond_with @discipline
   end
 
   # PATCH/PUT /disciplines/1
-  # PATCH/PUT /disciplines/1.json
   def update
-    respond_to do |format|
-      if @discipline.update(discipline_params)
-        format.html { redirect_to @discipline, notice: 'Discipline was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @discipline.errors, status: :unprocessable_entity }
-      end
-    end
+    @discipline.update(discipline_params)
+    respond_with @discipline
   end
 
   # DELETE /disciplines/1
-  # DELETE /disciplines/1.json
   def destroy
     @discipline.destroy
-    respond_to do |format|
-      format.html { redirect_to disciplines_url }
-      format.json { head :no_content }
-    end
+    respond_with @discipline
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def load_discipline
       @discipline = Discipline.find(params[:id])
       authorize @discipline
