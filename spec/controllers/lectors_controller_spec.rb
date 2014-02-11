@@ -74,9 +74,7 @@ describe LectorsController do
       end
 
       it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Lector.any_instance.stub(:save).and_return(false)
-        post :create, {:lector => { "name" => "invalid value" }}, valid_session
+        post :create, {:lector => { :name => '' }}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -120,9 +118,7 @@ describe LectorsController do
 
       it "re-renders the 'edit' template" do
         lector = Lector.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Lector.any_instance.stub(:save).and_return(false)
-        put :update, {:id => lector.to_param, :lector => { "name" => "invalid value" }}, valid_session
+        put :update, {:id => lector.to_param, :lector => { :name => '' }}, valid_session
         expect(response).to render_template("edit")
       end
     end
