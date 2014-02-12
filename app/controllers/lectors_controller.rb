@@ -2,6 +2,7 @@ class LectorsController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:index, :show]
 
   before_action :load_lector, only: [:show, :edit, :update, :destroy]
+  before_action :build_lector, only: [:new, :create]
 
   # GET /lectors
   def index
@@ -14,8 +15,6 @@ class LectorsController < ApplicationController
 
   # GET /lectors/new
   def new
-    @lector = Lector.new
-    authorize @lector
   end
 
   # GET /lectors/1/edit
@@ -24,8 +23,7 @@ class LectorsController < ApplicationController
 
   # POST /lectors
   def create
-    @lector = Lector.new(lector_params)
-    authorize @lector
+    @lector.attributes = lector_params
     @lector.save
     respond_with @lector
   end
@@ -43,6 +41,11 @@ class LectorsController < ApplicationController
   end
 
   private
+
+    def build_lector
+      @lector = Lector.new
+      authorize @lector
+    end
 
     def load_lector
       @lector = Lector.find(params[:id])
