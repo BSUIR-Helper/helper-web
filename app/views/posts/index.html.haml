@@ -1,0 +1,28 @@
+%h1 Listing posts
+
+%table
+  %tr
+    %th Title
+    %th Discipline
+    %th Description
+    %th
+    %th
+    %th
+
+  - @posts.each do |post|
+    %tr
+      %td= post.title
+      %td= post.discipline
+      %td= post.description
+      %td= link_to 'Show', post
+      %td
+        - if policy(post).edit?
+          = link_to 'Edit', edit_post_path(post)
+      %td
+        - if policy(post).destroy?
+          = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+- if policy(Post).create?
+  = link_to 'New Post', new_post_path

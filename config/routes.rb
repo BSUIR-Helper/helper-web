@@ -1,4 +1,6 @@
 Helper::Application.routes.draw do
+  resources :posts
+
   resources :lectors
 
   resources :disciplines
