@@ -2,6 +2,7 @@ class DisciplinesController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:index, :show]
 
   before_action :load_discipline, only: [:show, :edit, :update, :destroy]
+  before_action :build_discipline, only: [:new, :create]
 
   # GET /disciplines
   def index
@@ -14,8 +15,6 @@ class DisciplinesController < ApplicationController
 
   # GET /disciplines/new
   def new
-    @discipline = Discipline.new
-    authorize @discipline
   end
 
   # GET /disciplines/1/edit
@@ -24,8 +23,7 @@ class DisciplinesController < ApplicationController
 
   # POST /disciplines
   def create
-    @discipline = Discipline.new(discipline_params)
-    authorize @discipline
+    @discipline.attributes = discipline_params
     @discipline.save
     respond_with @discipline
   end
@@ -43,6 +41,11 @@ class DisciplinesController < ApplicationController
   end
 
   private
+
+    def build_discipline
+      @discipline = Discipline.new
+      authorize @discipline
+    end
 
     def load_discipline
       @discipline = Discipline.find(params[:id])
