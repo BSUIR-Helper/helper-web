@@ -16,3 +16,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# coveralls
+coverage/
+

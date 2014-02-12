@@ -22,6 +22,7 @@ end
 group :development, :test do
   gem 'fabrication'
   gem 'rspec-rails'
+  gem 'coveralls', require: false
 end
 
 gem 'responders'
