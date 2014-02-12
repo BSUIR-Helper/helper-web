@@ -1,4 +1,5 @@
-# BSUIR Helper [![Build Status](https://travis-ci.org/BSUIR-Helper/helper-web.png?branch=master)](https://travis-ci.org/BSUIR-Helper/helper-web) [![Code Climate](https://codeclimate.com/github/BSUIR-Helper/helper-web.png)](https://codeclimate.com/github/BSUIR-Helper/helper-web) [![Dependency Status](https://gemnasium.com/BSUIR-Helper/helper-web.png)](https://gemnasium.com/BSUIR-Helper/helper-web)
+# BSUIR Helper
+[![Build Status](https://travis-ci.org/BSUIR-Helper/helper-web.png?branch=master)](https://travis-ci.org/BSUIR-Helper/helper-web) [![Code Climate](https://codeclimate.com/github/BSUIR-Helper/helper-web.png)](https://codeclimate.com/github/BSUIR-Helper/helper-web) [![Coverage Status](https://coveralls.io/repos/BSUIR-Helper/helper-web/badge.png)](https://coveralls.io/r/BSUIR-Helper/helper-web) [![Dependency Status](https://gemnasium.com/BSUIR-Helper/helper-web.png)](https://gemnasium.com/BSUIR-Helper/helper-web)
 
 The next version of http://bsuir-helper.ru
 
