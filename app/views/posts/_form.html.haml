@@ -1,0 +1,12 @@
+= simple_form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.input :title
+  = f.association :discipline, prompt: 'Choose a discipline', collection: @disciplines
+  = f.input :description, as: :text
+  = f.button :submit
