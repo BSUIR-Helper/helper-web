@@ -21,6 +21,7 @@ end
 
 group :development, :test do
   gem 'fabrication'
+  gem 'faker'
   gem 'rspec-rails'
   gem 'coveralls', require: false
 end
