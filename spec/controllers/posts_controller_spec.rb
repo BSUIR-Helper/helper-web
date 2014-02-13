@@ -55,13 +55,20 @@ describe PostsController do
   end
 
   describe "POST create" do
-    before { sign_in Fabricate(:user) }
+    let(:user) { Fabricate(:user) }
+
+    before { sign_in user }
 
     describe "with valid params" do
       it "creates a new Post" do
         expect {
           post :create, {:post => valid_attributes}, valid_session
         }.to change(Post, :count).by(1)
+      end
+
+      it "sets current user as author" do
+        post :create, {:post => valid_attributes}, valid_session
+        expect(Post.last.author).to eq(user)
       end
 
       it "assigns a newly created post as @post" do
@@ -129,6 +136,15 @@ describe PostsController do
         post = Post.create! valid_attributes
         put :update, {:id => post.to_param, :post => valid_attributes}, valid_session
         expect(response).to redirect_to(post)
+      end
+
+      it "doesn't change the author" do
+        author = Fabricate(:user)
+        post = Post.create! valid_attributes
+        post.author = author
+        post.save!
+        put :update, {:id => post.to_param, :post => valid_attributes}, valid_session
+        expect(Post.last.author).to eq(author)
       end
     end
 

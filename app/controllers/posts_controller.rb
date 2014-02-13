@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :load_post, only: [:show, :edit, :update, :destroy]
   before_action :load_disciplines, only: [:new, :create, :edit, :update]
   before_action :build_post, only: [:new, :create]
+  before_action :assign_author, only: :create
 
   def index
     @posts = policy_scope(Post)
@@ -35,6 +36,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+    def assign_author
+      @post.author = current_user
+    end
 
     def build_post
       @post = Post.new
