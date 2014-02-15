@@ -1,4 +1,6 @@
 Fabricator :post do
-  title 'Title of some student book'
+  title { Faker::Lorem.sentence }
+  description { Faker::Lorem.paragraph }
   discipline { Fabricate(:discipline) }
+  author { Fabricate(:user) }
 end

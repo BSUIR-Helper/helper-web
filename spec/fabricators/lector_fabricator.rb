@@ -1,4 +1,4 @@
 Fabricator :lector do
-  name 'Jimi Hendrix'
-  title 'P.H.D.'
+  name { Faker::Name.name }
+  title { Faker::Name.title }
 end

@@ -40,4 +40,11 @@ describe Post do
       it { should be_valid }
     end
   end
+
+  it 'nullifies author relationship when author is destroyed' do
+    post = Fabricate(:post)
+    post.author.destroy
+    post.reload
+    expect(post.author).to be_nil
+  end
 end

@@ -1,4 +1,4 @@
 Fabricator :discipline do
-  name 'Computer Science'
-  abbr 'CS'
+  name { Faker::Lorem.words.join(' ').titleize }
+  abbr { Faker::Lorem.word.upcase }
 end
