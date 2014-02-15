@@ -17,6 +17,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate_user!
 
+  def forem_user
+    current_user
+  end
+  helper_method :forem_user
+
   private
 
   def user_not_authorized
