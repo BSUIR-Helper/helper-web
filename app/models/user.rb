@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts, foreign_key: :author_id
+
+  def to_s
+    name || email
+  end
 end

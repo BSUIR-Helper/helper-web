@@ -5,12 +5,16 @@ Forem.email_from_address = "please-change-me@example.com"
 Forem.per_page = 20
 
 
-# Rails.application.config.to_prepare do
+Rails.application.config.to_prepare do
+  Forem::ApplicationController.class_eval do
+    skip_before_action :authenticate_user!
+    skip_after_action :verify_authorized, :verify_policy_scoped
+  end
 #   If you want to change the layout that Forem uses, uncomment and customize the next line:
 #   Forem::ApplicationController.layout "forem"
 #
 #   If you want to add your own cancan Abilities to Forem, uncomment and customize the next line:
 #   Forem::Ability.register_ability(Ability)
-# end
+end
 #
 # By default, these lines will use the layout located at app/views/layouts/forem.html.erb in your application.
