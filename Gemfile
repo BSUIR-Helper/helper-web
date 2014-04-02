@@ -26,6 +26,11 @@ group :development, :test do
   gem 'coveralls', require: false
 end
 
+# User Forem engine for forum
+gem 'forem', github: 'radar/forem', branch: 'rails4'
+gem 'cancan', git: 'https://github.com/nukturnal/cancan.git' # needed by forem
+gem 'kaminari', '0.15.1' # needed by forem
+
 gem 'responders'
 gem 'simple_form'
 

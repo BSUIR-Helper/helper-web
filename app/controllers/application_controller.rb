@@ -17,10 +17,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate_user!
 
+  def forem_user
+    current_user
+  end
+  helper_method :forem_user
+
   private
 
   def user_not_authorized
     flash[:error] = "You are not authorized to perform this action."
-    redirect_to request.headers["Referer"] || root_path
+    redirect_to request.headers["Referer"] || main_app.root_path
   end
 end
